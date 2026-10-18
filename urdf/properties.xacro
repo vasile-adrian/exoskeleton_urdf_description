@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="exoskeleton">
+
+    <!--these maros are used to store the length of the short/long bars of the 
+        6 bar linkage. Rotation plane is parallel to the ground-->
+    <xacro:property name="short_bar" value="0.16"/>
+    <xacro:property name="long_bar" value="0.19"/>
+    <xacro:property name="bar_width" value="0.04"/>
+    <xacro:property name="bar_height" value="0.02"/>
+    <xacro:property name="loop_radius" value="0.02"/>
+    <xacro:property name="big_loop_radius" value="0.0525"/>
+
+
+    <!--this macro is used to store the legth of the connecting bar between the 
+        6 bar linkage.-->
+    <xacro:property name="connecting_bar" value="${short_bar + long_bar}"/>
+
+    <!--these macors are used to store the distances between the top of the 6 bar
+        linkage and the subsequent leg sections between each link. Rotation plane 
+        is perpendicular to the previous hip rotation plane. Then all rotations
+        are in the same plane perpendicular to the ground for all subsequent links-->
+    <xacro:property name="bottom_low_hip_dist" value="0.186"/>
+    <xacro:property name="low_hip_knee_dist" value="0.35"/>
+    <xacro:property name="knee_ankle_dist" value="0.32"/>
+    <xacro:property name="ankle_floor_dist" value="0.10"/>
+
+    <xacro:property name="max_effort" value="100.0"/>
+    <xacro:property name="max_velocity" value="2.6"/>
+
+    
+</robot>

@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/adrian/ros2_ws/src/exoskeleton_description/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
