@@ -1,0 +1,73 @@
+<mujoco model="exoskeleton">
+  <compiler angle="radian"/>
+
+  <asset>
+    <mesh name="support_base" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/hip/support_base.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="long_thick" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/hip/long_thick.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="connecting_thin" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/hip/connecting_thin.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="connecting_thick" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/hip/connecting_thick.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="thin" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/hip/thin.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="simplified_hip_to_thigh2" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/hip/simplified_hip_to_thigh2.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="thigh2" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/thigh2.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="leg2" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/leg2.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="foot" content_type="model/stl" file="/home/adrian/ros2_ws/src/exoskeleton_description/meshes/visual_bin/foot.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <geom size="0.04 0.04 0.9" pos="0 0 0.9" type="box" contype="0" conaffinity="0" group="1" density="0"/>
+    <geom pos="-0.03 0.08475 1.39" quat="0.707107 0 0 0.707107" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="support_base"/>
+    <geom size="0.08 0.02 0.01" pos="0.03 0.08475 1.4" type="box"/>
+    <body name="short_bar_wide_link" pos="-0.03 0.08475 1.39" quat="0.707107 0 0 0.707107">
+      <inertial pos="0.06386 0 0.05046" quat="0.378435 0.597317 0.597317 0.378435" mass="0.4349" diaginertia="0.002658 0.00172917 0.000993834"/>
+      <joint name="hip_motor_joint_base" pos="0 0 0" axis="0 0 1" range="-0.5 0.5" actuatorfrcrange="-100 100" damping="0.1" frictionloss="0.1"/>
+      <geom pos="0 0 -0.00125" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="long_thick"/>
+      <geom size="0.095 0.02 0.01" pos="0.075 0 -0.01125" type="box"/>
+      <body name="connecting_bar_thin_link" pos="0.15 0 0" quat="0.707107 0 0 -0.707107">
+        <inertial pos="0.13601 0 0.03912" quat="0.498426 0.501569 0.501569 0.498426" mass="0.4876" diaginertia="0.004662 0.00427415 0.000456849"/>
+        <joint name="sbw_cbt_joint" pos="0 0 0" axis="0 0 1" damping="0.01" frictionloss="0.01"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="connecting_thin"/>
+        <geom size="0.155 0.02 0.01" pos="0.135 0 0.01" type="box"/>
+        <body name="support_bar_link" pos="0.27 0 0" quat="0.707107 0 0 0.707107">
+          <inertial pos="0.01787 -0.0009 0.10604" quat="0.701273 -0.0862549 -0.0942672 0.701348" mass="2.0404" diaginertia="0.018913 0.0181428 0.0027672"/>
+          <joint name="cbt_support_joint" pos="0 0 0" axis="0 0 1" damping="0.01" frictionloss="0.01"/>
+          <geom pos="0 0 0.01875" quat="0 1 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="simplified_hip_to_thigh2"/>
+          <geom size="0.08 0.02 0.01" pos="0.06 0 0.03125" type="box"/>
+          <body name="hip_link" pos="0 0 -0.186" quat="0.707107 0 0.707107 0">
+            <inertial pos="0.23961 0.00181 -0.00555" quat="-0.0174139 0.712937 -0.00906151 0.700953" mass="1.4206" diaginertia="0.0245925 0.0239845 0.00092298"/>
+            <joint name="support_hip_joint" pos="0 0 0" axis="0 0 1" damping="0.01" frictionloss="0.01"/>
+            <geom pos="0 0 0" quat="0 1 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="thigh2"/>
+            <geom size="0.175 0.02 0.01" pos="0.175 0 0.01" type="box"/>
+            <body name="leg_link" pos="0.35 0 0">
+              <inertial pos="0.22395 -0.00045 -0.00521" quat="0.00461892 0.712621 0.00189934 0.701532" mass="1.4465" diaginertia="0.02104 0.0203662 0.000991783"/>
+              <joint name="knee_joint" pos="0 0 0" axis="0 0 1" range="-0.5 0.5" actuatorfrcrange="-100 100" damping="0.1" frictionloss="0.1"/>
+              <geom pos="0 0 0" quat="0 1 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="leg2"/>
+              <geom size="0.16 0.02 0.01" pos="0.16 0 -0.011" type="box"/>
+              <body name="foot_link" pos="0.32 0 0">
+                <inertial pos="-0.06731 -0.06652 -0.04545" quat="0.954765 -0.288319 0.0108041 -0.0719615" mass="0.5978" diaginertia="0.00683677 0.0057635 0.00261273"/>
+                <joint name="ankle_joint" pos="0 0 0" axis="0 0 1" range="-0.5 0.5" actuatorfrcrange="-100 100" damping="0.1" frictionloss="0.1"/>
+                <geom quat="0 0 1 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="foot"/>
+                <geom size="0.05 0.02 0.01" pos="0.05 0 0.01" type="box"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="connecting_bar_wide_link" pos="0.09 0.08475 1.39" quat="0.707107 0 0 0.707107">
+      <inertial pos="0.13337 0 0.04153" quat="0.498781 0.501216 0.501216 0.498781" mass="0.5842" diaginertia="0.0063 0.00503709 0.00133991"/>
+      <joint name="fbs_cbw_joint" pos="0 0 0" axis="0 0 1" damping="0.01" frictionloss="0.01"/>
+      <geom pos="0 0 -0.00125" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="connecting_thick"/>
+      <geom size="0.155 0.02 0.01" pos="0.135 0 -0.01125" type="box"/>
+      <body name="long_bar_thin_link" pos="0.27 0 0" quat="0.707107 0 0 -0.707107">
+        <inertial pos="0.07464 -1e-05 0.03971" quat="0.500939 0.499059 0.499059 0.500939" mass="0.3123" diaginertia="0.001336 0.00109001 0.000291989"/>
+        <joint name="cbw_lbt_joint" pos="0 0 0" axis="0 0 1" damping="0.01" frictionloss="0.01"/>
+        <geom pos="0 0 -0.0025" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="thin"/>
+        <geom size="0.095 0.02 0.01" pos="0.075 0 0.01" type="box"/>
+      </body>
+    </body>
+  </worldbody>
+  <equality>
+    <connect anchor="0.15 0 0.01" body1="connecting_bar_wide_link" body2="connecting_bar_thin_link" solref="0.004 1" solimp="0.95 0.99 0.001 0.5 2"/>
+    <connect anchor="0.15 0 0.01" body1="long_bar_thin_link" body2="support_bar_link"            solref="0.004 1" solimp="0.95 0.99 0.001 0.5 2"/>
+</equality>
+</mujoco>

@@ -3,94 +3,90 @@
 
     <xacro:macro name="fixed_bar_inertia">
         <inertial>
-            
-            <origin xyz="0.01306 0.00000 ${-0.04767+0.04}" rpy="0 0 0"/>
+            <origin xyz="-0.00000 0.01306 ${-0.04767+0.04}" rpy="0 0 0"/>
             <mass value="1.1911"/>
-            <inertia ixx="0.003171" ixy="0.000000" ixz="-0.001062" 
-                     iyy="0.004048" iyz="0.000000" 
+            <inertia ixx="0.004048" ixy="-0.000000" ixz="0.000000" 
+                     iyy="0.003171" iyz="-0.001062" 
                      izz="0.002659"/>
-            </inertial>
+        </inertial>
     </xacro:macro>
 
     <xacro:macro name="long_bar_wide_inertia">
         <inertial>
-        <origin xyz="0.00000 0.06384 0.00969" rpy="0 0 0"/>
-        <mass value="0.4514"/>
-        <inertia ixx="${0.002699+0.2048}" ixy="0.000000" ixz="0.000000"
-                 iyy="${0.001160+0.2048}" iyz="0.000277" 
-                 izz="${0.001603+0.2048}"/>
-        </inertial>
+            <origin xyz="0.06386 0.00000 0.05046" rpy="0 0 0"/>
+            <mass value="0.4349"/>
+            <inertia ixx="${0.001128}" ixy="0.000000" ixz="0.000284"
+                    iyy="${0.002658}" iyz="-0.000000" 
+                    izz="${0.001595}"/>
+            </inertial>
     </xacro:macro>
 
     <xacro:macro name="long_bar_thin_inertia">
         <inertial>
-            <origin xyz="0.07435 -0.00001 0.00003" rpy="0 0 0"/>
-            <mass value="0.3159"/>
-            <inertia ixx="0.000296" ixy="0.000000" ixz="-0.000001"
-                     iyy="0.001342" iyz="-0.000000" 
-                     izz="0.001093"/>
+            <origin xyz="0.07464 -0.00001 0.03971" rpy="0 0 0"/>
+            <mass value="0.3123"/>
+            <inertia ixx="0.000292" ixy="0.000000" ixz="-0.000003"
+                    iyy="0.001336" iyz="-0.000000" 
+                    izz="0.001090"/>
             </inertial>
     </xacro:macro>
 
     <xacro:macro name="connecting_bar_thin_inertia">
         <inertial>
-            <origin xyz="0.13552 -0.00000 0.00002" rpy="0 0 0"/>
-            <mass value="0.5012"/>
-            <inertia ixx="0.000469" ixy="0.000000" ixz="-0.000001"
-                     iyy="0.004692" iyz="-0.000000" 
-                     izz="0.004293"/>
-        </inertial>
+            <origin xyz="0.13601 -0.00000 0.03912" rpy="0 0 0"/>
+            <mass value="0.4876"/>
+            <inertia ixx="0.000457" ixy="0.000000" ixz="0.000024"
+                    iyy="0.004662" iyz="0.000000" 
+                    izz="0.004274"/>
+            </inertial>
     </xacro:macro>
 
     <xacro:macro name="connecting_bar_wide_inertia">
         <inertial>
-            <origin xyz="-0.00000 0.13325 0.00003" rpy="0 0 0"/>
-            <mass value="0.6116"/>
-            <inertia ixx="0.006414" ixy="-0.000000" ixz="-0.000000"
-                     iyy="0.001399" iyz="0.000002" 
-                     izz="0.005092"/>
-        </inertial>
+            <origin xyz="0.13337 0.00000 0.04153" rpy="0 0 0"/>
+            <mass value="0.5842"/>
+            <inertia ixx="0.001340" ixy="0.000000" ixz="0.000018"
+                    iyy="0.006300" iyz="0.000000" 
+                    izz="0.005037"/>
+            </inertial>
     </xacro:macro>
 
     <xacro:macro name="short_bar_leg_inertia">
         <inertial>
-            <origin xyz="0.04211 0.00250 -0.12521" rpy="0 0 0"/>
-            <mass value="2.0505"/>
-            <inertia ixx="0.017254" ixy="-0.000097" ixz="0.003795"
-                     iyy="0.019012" iyz="0.000127" 
-                     izz="0.003782"/>
-        </inertial>
+            <origin xyz="0.01787 -0.00090 0.10604" rpy="${pi} 0 0"/>
+            <mass value="2.0404"/>
+            <inertia ixx="0.017157" ixy="-0.000045" ixz="0.003766"
+                    iyy="0.018911" iyz="0.000176" 
+                    izz="0.003755"/>
+            </inertial>
     </xacro:macro>
 
     <xacro:macro name="thigh_inertia">      
         <inertial>
-            <origin xyz="0.00181 -0.26662 -0.01279" rpy="0 0 0"/>
-            <mass value="1.8749"/>
-            <!-- Adding 0.9356 apparent inertia to the original izz (from the motor internal inertia)-->
-            <inertia ixx="${0.029194+0.9356}" ixy="-0.000472" ixz="-0.000098"
-                     iyy="${0.002300+0.9356}" iyz="-0.001247" 
-                     izz="${0.029681+0.9356}"/>
-        </inertial>
+            <origin xyz="0.23961 0.00181 -0.00555" rpy="0 0 0"/>
+            <mass value="1.4206"/>
+            <inertia ixx="0.000933" ixy="-0.000280" ixz="0.000396"
+                    iyy="0.023982" iyz="-0.000018"
+                    izz="0.024585"/>
+            </inertial>            
     </xacro:macro>
 
     <xacro:macro name="leg_inertia">
         <inertial>
-        <origin xyz="-0.00738 -0.22953 0.00042" rpy="0 0 0"/>
-        <mass value="1.5386"/>
-        <!-- Adding 0.9356 apparent inertia to the original izz (from the motor internal inertia)-->
-        <inertia ixx="${0.021861+0.9356}" ixy="-0.000624" ixz="-0.000006"
-                 iyy="${0.001153+0.9356}" iyz="0.000073" 
-                 izz="${0.021319+0.9356}"/>
-        </inertial>
+            <origin xyz="0.22395 -0.00045 -0.00521" rpy="0 0 0"/>
+            <mass value="1.4465"/>
+            <inertia ixx="0.000997" ixy="0.000076" ixz="0.000314"
+                    iyy="0.020366" iyz="0.000005" 
+                    izz="0.021035"/>
+            </inertial>
     </xacro:macro>
-            <!-- Adding 0.0588 apparent inertia to the original izz (from the motor internal inertia)-->
 
     <xacro:macro name="foot_inertia">
         <inertial>
-            <origin xyz="0.06731 -0.06652 0.04545" rpy="0 0 0"/>
+            <origin xyz="-0.06731 -0.06652 -0.04545" rpy="0 ${pi} 0"/>
             <mass value="0.5978"/>
-            <inertia ixx="0.006802" ixy="0.000260" ixz="-0.000141"
-                     iyy="0.004836" iyz="0.001445" 
+            <inertia ixx="0.006802" ixy="-0.000260" ixz="-0.000141"
+                     iyy="0.004836" iyz="-0.001445" 
                      izz="0.003575"/>
         </inertial>
     </xacro:macro>
