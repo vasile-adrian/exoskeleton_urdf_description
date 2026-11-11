@@ -1,0 +1,4 @@
+<equality>
+    <connect anchor="0.15 0 0.01" body1="connecting_bar_wide_link" body2="connecting_bar_thin_link" solref="0.004 1" solimp="0.95 0.99 0.001 0.5 2"/>
+    <connect anchor="0.15 0 0.01" body1="long_bar_thin_link" body2="support_bar_link"            solref="0.004 1" solimp="0.95 0.99 0.001 0.5 2"/>
+</equality>

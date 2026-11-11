@@ -152,7 +152,7 @@
         <visual>
             <origin xyz="0 0 ${bar_height-0.00125}" rpy="${pi} 0 0"/>
             <geometry>
-                <mesh filename="package://exoskeleton_description/meshes/visual_bin/hip/simplified_hip_to_thigh2.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://exoskeleton_description/meshes/visual_bin/hip/hip_to_thigh.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
@@ -177,7 +177,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="${pi} 0 0"/>
             <geometry>
-                <mesh filename="package://exoskeleton_description/meshes/visual_bin/thigh2.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://exoskeleton_description/meshes/visual_bin/thigh.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>
@@ -203,7 +203,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="${pi} 0 0"/>
             <geometry>
-                <mesh filename="package://exoskeleton_description/meshes/visual_bin/leg2.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://exoskeleton_description/meshes/visual_bin/leg.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
         <collision>

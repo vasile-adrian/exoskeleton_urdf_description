@@ -1,5 +1,0 @@
-<inertial>
-  <origin xyz="-0.06384 0.00969 0.00000" rpy="0 0 0"/>
-  <mass value="0.4514"/>
-  <inertia ixx="0.001160" ixy="-0.000277" ixz="-0.000000" iyy="0.001603" iyz="-0.000000" izz="0.002699"/>
-</inertial>
