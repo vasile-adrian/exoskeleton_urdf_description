@@ -164,9 +164,9 @@
         <xacro:short_bar_leg_inertia />
     </link>
 
-    <!-- PASSIVE JOINT (MDH: Rot_x(pi/2) * Rot_z(-pi/2) -> rpy="0 ${pi/2} ${-pi/2}") -->
-    <joint name="support_hip_joint" type="continuous">
-        <parent link="support_bar_link"/>
+    <!-- ACTIVE JOINT (MDH: Rot_x(pi/2) * Rot_z(-pi/2) -> rpy="0 ${pi/2} ${-pi/2}") -->
+    <joint name="support_hip_joint" type="revolute">
+        <parent link="support_bar_link"/> <!-- Horizontal hip joint actuated -->
         <child link="hip_link"/>
         <origin xyz="0 0 ${-bottom_low_hip_dist}" rpy="0 ${pi/2} 0"/>
         <axis xyz="0 0 1"/>
@@ -286,9 +286,17 @@
         </hardware>
         
         <!-- Only command the driven joints -->
+        <!--Veritcal hip joint-->>
         <joint name="hip_motor_joint_base">
             <command_interface name="effort"/>
             <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!--Horizontal hip joint-->>
+        <joint name="support_hip_joint">
+            <command_interface name="effort"/>
+             <state_interface name="position"/>
             <state_interface name="velocity"/>
         </joint>
 
@@ -318,10 +326,6 @@
             <state_interface name="velocity"/>
         </joint>
         <joint name="cbt_support_joint">
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
-        </joint>
-        <joint name="support_hip_joint">
             <state_interface name="position"/>
             <state_interface name="velocity"/>
         </joint>
